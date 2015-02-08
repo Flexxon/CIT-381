@@ -1,0 +1,14 @@
+public class Model {
+	
+	private int addingValue;
+	
+	public void addSomeNumbers(int firstNumber, int secondNumber){
+	                                                             
+	   addingValue = firstNumber + secondNumber;                                                  
+	}
+	
+	public int getAddingValue(){
+	   return addingValue;
+	}
+			
+}

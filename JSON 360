@@ -1,0 +1,49 @@
+
+
+//This is a JSON array
+
+"GroupMembers":[
+    {"firstName":"Devin", "lastName":"Lindsay"},
+    {"firstName":"Josh", "lastName":"Reed"},
+    {"firstName":"Jared", "lastName":"Wrathall"}
+]
+
+
+
+
+//This is a normal Java Script array
+
+var GroupMembers = [
+    {"firstName":"Devin", "lastName":"Lindsay"},
+    {"firstName":"Josh", "lastName":"Reed"},
+    {"firstName":"Jared", "lastName":"Wrathall"}
+]
+
+
+
+
+<script>
+
+
+//JavaScript string using JSON syntax
+var example = '{ "groupMembers" : [' +
+'{ "firstName":"Devin" , "lastName":"Lindsay" },' +
+'{ "firstName":"Josh" , "lastName":"Reed" },' +
+'{ "firstName":"Jared" , "lastName":"Wrathall" } ]}';
+]
+
+
+//Here, the JSON.parse is converting the JSON into a JavaScript object
+var obj = JSON.parse(example);
+
+
+//Now we can use the new JavaScript object
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = 
+obj.groupMembers[1].firstName + " " + obj.groupMembers[1].lastName;
+</script>
+
+

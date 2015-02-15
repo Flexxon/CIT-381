@@ -1,0 +1,35 @@
+import java.math.*;
+
+public class Model {
+
+	//List what will be needed for a mortgage calculator.
+	//This includes Interest Rates, duration of loan, loan amount, down payment
+
+private double monthlyPayment;
+private double monthlyInterestRate;
+
+//Rounding provided by Jonik at http://stackoverflow.com/questions/2808535/round-a-double-to-2-decimal-places
+public static double round(double value, int places) {
+    if (places < 0) throw new IllegalArgumentException();
+
+    BigDecimal bd = new BigDecimal(value);
+    bd = bd.setScale(places, RoundingMode.HALF_UP);
+    return bd.doubleValue();
+}
+
+public void calcMonthlyPayment(double totalCost, double duration, double interestRate){
+	
+    interestRate /= 100.0;
+	monthlyInterestRate = interestRate / 12.0;
+	duration *= 12;
+	
+	//loan calculating logic here...
+	monthlyPayment = (totalCost*monthlyInterestRate) / (1-Math.pow(1+monthlyInterestRate, -duration));
+	monthlyPayment = round(monthlyPayment, 2);
+	
+}
+public double getMonthlyPayment(){
+	return monthlyPayment;
+    }
+
+}

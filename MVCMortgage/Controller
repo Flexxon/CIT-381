@@ -1,0 +1,41 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+public class Controller {
+
+	private View theView;
+	private Model theModel;
+	
+	public Controller(View theView, Model theModel){
+	
+		this.theView = theView;
+		this.theModel = theModel;
+		
+		//Here we tell the View that when the button is pressed, it will add the numbers
+		this.theView.addMortgageListener(new MortgageListener());
+	}
+	
+	class MortgageListener implements ActionListener {
+		public void actionPerformed(ActionEvent arg0) {
+			double totalCost, duration, interestRate = 0;
+				
+			
+			try{
+					totalCost = theView.getTotalCost();
+					duration = theView.getDurationField();
+					interestRate = theView.getInterest();
+					
+		
+					theModel.calcMonthlyPayment(totalCost, duration, interestRate);
+		
+					theView.setMortgageSolution(theModel.getMonthlyPayment());
+			}
+	
+			catch(NumberFormatException ex){
+		
+				theView.displayErrorMessage("You need to enter two double type numbers");
+			}
+		}
+	}
+}

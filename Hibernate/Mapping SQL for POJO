@@ -32,3 +32,5 @@ Here is the corresponding XML code for the POJO we created.
 </hibernate-mapping>
 
 
+//Code from http://www.tutorialspoint.com/hibernate/hibernate_examples.htm
+

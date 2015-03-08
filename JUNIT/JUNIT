@@ -1,0 +1,17 @@
+
+public class JUNIT {
+
+	private String testMessage;
+	
+	//this is my constructor for the message I will be printing...
+	public JUNIT(String testMessage){
+		this.testMessage = testMessage;
+	}
+	
+	//this is the printed message
+	public String printTestMessage(){
+		System.out.println(testMessage);
+		return testMessage;
+	}
+		
+}

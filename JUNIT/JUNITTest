@@ -1,0 +1,18 @@
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class JUNITTest {
+
+	//Here I'm setting the test string that is outputted 
+	String testMessage = "This is a test";
+	JUNIT junit = new JUNIT(testMessage);
+	
+	//This is the test that will see if the message placed above equals what is printed.
+	@Test
+	public void testPrintTestMessage() {
+		//Here I can test for a specific string by telling the @Test what testMessage should be.
+		testMessage = "This is a test";
+		assertEquals(testMessage,junit.printTestMessage());
+	}
+	
+}

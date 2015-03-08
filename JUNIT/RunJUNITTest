@@ -1,0 +1,18 @@
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
+
+public class RunJUNITTest {
+	
+	public static void main(String[] args) {
+		//Here I run the test on my JUNITTest class
+		Result result = JUnitCore.runClasses(JUNITTest.class);
+		//This part checks to see if the test fails.
+		for (Failure failure : result.getFailures()){
+			System.out.println(failure.toString());
+		}
+		//This is what happens if the test doesn't fail.
+		System.out.println(result.wasSuccessful());
+	}
+
+}

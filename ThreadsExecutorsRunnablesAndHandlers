@@ -1,0 +1,28 @@
+//Thread: The section of code that contains a listener that is waiting for a response from the runnable.
+//Executor: This is a util that helps execute the runnables.
+//Runnable: This is a class that can be put into a thread that describes what the thread is supposed to do.
+//Handler: Works with listeners to tell the program how it’s going to handle certain events. While there can be many different listeners in a single program, there is only one handler allowed in a program.  So, listeners listen for an event to happen, but the handler is the part dealing with the event.
+
+
+
+//Runnable code
+public class runnable implements Runnable {
+	public void run() {
+		//put stuff in here that you want to run
+	}
+}
+
+//Thread code using the runnable
+Thread t = new Thread(new runnable());
+t.start();
+
+
+
+//It’s also possible to combine the two without having an actual class for runnable by doing this
+Threat t  = new Thread(new Runnable() {
+	public void run() {
+		//put stuff here that you want to run
+	}
+//notice that the first parenthesis is closed here, after the entire runnable, making sure it’s all part of the Thread’s parameters.
+});
+t.start();

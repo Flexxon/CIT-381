@@ -1,0 +1,22 @@
+//Using the Android HTTPURLConnection to Consume a JSON Web Service
+//This is what I currently understand about setting up an HttpURLConnection.  I’m not entire sure what it means to “Consume a JSON Web Service” and when I try to google for that specific information I can’t find anything that looks correct.  I need some clarification on this.
+//First, you need to instantiate an object of class URL and provide a link to a website... 
+
+String link = "http://www.google.com";
+URL url = new URL(link);   
+
+//Then you can utilize the HttpURLConnection class to open a connection to the site name that is sitting in url
+
+HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+conn.connect();		
+
+//Then, in order to display the website in the URL you need to actually fetch the information from the site through InputStream and BufferedReader classes.
+
+InputStream is = conn.getInputStream();
+BufferedReader reader =new BufferedReader(new InputStreamReader(is, "UTF-8"));
+String webPage = "",data="";
+while ((data = reader.readLine()) != null){
+   webPage += data + "\n";
+}
+
+//There are also other methods in the HttpURLConnection class: disconnect(), getRequestMethod(), getResponseCode(), setRequestMethod(String method), usingProxy()

@@ -1,0 +1,17 @@
+import java.util.*;
+
+public class SetCollection {
+	
+	Set<String> setA = new HashSet<String>();
+	
+	String placeOne = "First Place";
+	String placeTwo = "Second Place";
+	String placeThree = "Third Place";
+	
+	setA.add(placeOne);
+	setA.add(placeTwo);
+	setA.add(placeThree);
+	
+	System.out.println(setA);
+	
+}

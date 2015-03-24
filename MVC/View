@@ -1,0 +1,53 @@
+import java.awt.event.ActionListener;
+import javax.swing.*;
+
+public class View extends JFrame{
+
+	//This builds what will be displayed
+	private JTextField firstNumber = new JTextField(10);
+	private JLabel addingLabel = new JLabel("+");
+	private JTextField secondNumber = new JTextField(10);
+	private JButton addingButton = new JButton("Calculate");
+	private JTextField addingSolution = new JTextField(10);
+	
+	//Here, we create what is actually being seen on the screen
+	View(){
+		
+		JPanel addingPanel = new JPanel();
+		
+		//This makes the application close when X is clicked
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(600, 200);
+		//Add components to the panel
+		addingPanel.add(firstNumber);
+		addingPanel.add(addingLabel);
+		addingPanel.add(secondNumber);
+		addingPanel.add(addingButton);
+		addingPanel.add(addingSolution);
+		this.add(addingPanel);
+}
+	//Get access to firstNumber	
+	public int getFirstNumber(){
+		return Integer.parseInt(firstNumber.getText());
+	}
+	//Get access to secondNumber
+	public int getSecondNumber(){
+		return Integer.parseInt(secondNumber.getText());	
+	}
+	//Get addingsolution
+	public int getAddingSolution(){
+		return Integer.parseInt(addingSolution.getText());	
+	}
+	//This is how we set addingSolution
+	public void setAddingSolution(int solution){
+		addingSolution.setText(Integer.toString(solution));
+	}
+    //This makes it so every time a button is clicked, the controller will know
+	void addAddingListener(ActionListener listenForAddingButton){
+		addingButton.addActionListener(listenForAddingButton);
+	}
+	
+	void displayErrorMessage(String errorMessage){
+		JOptionPane.showMessageDialog(this, errorMessage);
+	}
+}

@@ -1,0 +1,74 @@
+
+
+	//Set up GUI for mortgage calculator
+	//Create text in the GUI labeling where each piece of information goes.
+
+	import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+	public class View extends JFrame{
+
+		//This builds what will be displayed
+		private JTextField totalCost = new JTextField(10);
+		private JLabel loanLabel = new JLabel("Total Loan:");
+		private JLabel interestLabel = new JLabel("Interest Rate:");
+		private JLabel durationLabel = new JLabel("Years:");
+		private JLabel monthLabel = new JLabel("Monthly payment = ");
+		private JTextField durationField = new JTextField(10);
+		private JTextField interest = new JTextField(10);
+		private JButton mortgageButton = new JButton("Calculate");
+		private JTextField mortgageSolution = new JTextField(10);
+
+		View(){
+			
+			JPanel mortgage = new JPanel();
+			
+			//This makes the application close when X is clicked
+			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			this.setSize(600, 200);
+			//Add components to the panel
+			mortgage.add(loanLabel);
+			mortgage.add(totalCost);
+			mortgage.add(interestLabel);
+			mortgage.add(interest);
+			mortgage.add(durationLabel);
+			mortgage.add(durationField);
+			mortgage.add(mortgageButton);
+			mortgage.add(monthLabel);
+			mortgage.add(mortgageSolution);
+			this.add(mortgage);
+	}
+			
+		public double getTotalCost(){
+			return Double.parseDouble(totalCost.getText());
+		}
+		
+		public double getInterest(){
+			return Double.parseDouble(interest.getText());	
+		}
+		
+		public double getDurationField(){
+			return Double.parseDouble(durationField.getText());	
+		}
+		
+		public double getMortgageSolution(){
+			return Double.parseDouble(mortgageSolution.getText());	
+		}
+		
+		public void setMortgageSolution(double solution){
+			mortgageSolution.setText(Double.toString(solution));
+		}
+	    
+		void addMortgageListener(ActionListener listenForMortgageButton){
+			mortgageButton.addActionListener(listenForMortgageButton);
+		}
+		
+		void displayErrorMessage(String errorMessage){
+			JOptionPane.showMessageDialog(this, errorMessage);
+		}
+}
+
+	
+	
+
